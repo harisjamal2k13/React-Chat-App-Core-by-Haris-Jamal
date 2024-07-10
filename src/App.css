@@ -1,0 +1,178 @@
+/* App.css */
+
+/* General Styles */
+body {
+  font-family: 'Arial, sans-serif';
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.App {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.appTitle {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.sign-out {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sign-out:hover {
+  background-color: #c82333;
+}
+
+/* Main Section */
+section {
+  padding: 20px;
+  height: calc(100vh - 132px); /* Adjust based on your header height */
+  overflow-y: scroll;
+}
+.nameTag {
+  font-weight: bold;
+  font-size: 0.9rem; /* Adjust font size as needed */
+  color: #333; /* Choose a suitable color */
+  margin-bottom: 4px; /* Add spacing between name tag and message text */
+}
+
+
+.message {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.message.sent {
+  justify-content: flex-end;
+}
+
+.message.received {
+  justify-content: flex-start;
+}
+
+.message img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.messageBubble {
+  max-width: 80%; /* Adjust maximum width as needed */
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
+  position: relative;
+  word-wrap: break-word; /* Ensure long words break appropriately */
+}
+
+.messageBubble:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.messageBubble.sent:before {
+  border-width: 8px 10px 8px 0;
+  border-color: transparent #f0f0f0 transparent transparent;
+  right: -8px;
+  top: 10px;
+}
+
+.messageBubble.received:before {
+  border-width: 8px 0 8px 10px;
+  border-color: transparent transparent transparent #f0f0f0;
+  left: -8px;
+  top: 10px;
+}
+
+.messageBubble p {
+  margin: 0; /* Remove default margin to ensure text is flush with padding */
+  white-space: pre-wrap; /* Preserve whitespace and wrap lines */
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+
+/* Form Styles */
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+}
+
+input[type="text"] {
+  flex: 1; /* Use flex to expand and fill available space */
+  padding: 10px; /* Adjust padding as needed */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  width: 100%; /* Ensure the input fills its container */
+  max-width: 500px; /* Limit maximum width for larger screens */
+}
+
+
+
+input[type="text"]:focus {
+  border-color: #007bff;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 600px) {
+  .App {
+    border-radius: 0;
+    box-shadow: none;
+    height: 100vh;
+  }
+  
+  section {
+    height: calc(100vh - 92px);
+  }
+  
+  form {
+    padding: 10px;
+  }
+}
